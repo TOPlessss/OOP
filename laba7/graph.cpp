@@ -208,6 +208,50 @@ void Graph::printInArc(string name)
 
 }
 //========================================================================
+ostream & operator<<(ostream & coutOs, Graph & graph)
+{
+  coutOs << graph.vertex_.size() << endl;
+  for (unsigned int i = 0; i < graph.vertex_.size(); i++)
+  {
+     coutOs << graph.vertex_[i].getVertex() << " ";
+  }
+
+  coutOs << endl;
+  coutOs << graph.arc_.size() << endl;
+
+  for (unsigned int j = 0; j < graph.arc_.size(); j++)
+  {
+     coutOs << graph.arc_[j].getPair1() << " " << graph.arc_[j].getPair2() << endl;
+  }
+  return coutOs;
+}
+//========================================================================
+istream & operator>>(istream & cinIs, Graph & graph)
+{
+  graph.vertex_.clear();
+  graph.arc_.clear();
+
+  unsigned int sizeV;
+  cinIs >> sizeV;
+
+  for (unsigned int i = 0; i < sizeV; i++)
+  {
+    string tmp;
+    cinIs >> tmp;
+    graph.vertex_.push_back(Vertex(tmp));
+  }
+  unsigned int sizeA;
+  cinIs  >> sizeA;
+  for (unsigned int j = 0; j < sizeA; j++)
+  {
+    string vert1, vert2;
+    cinIs >> vert1 >> vert2;
+    auto pairV = make_pair(vert1, vert2);
+    graph.arc_.push_back(Arc(pairV));
+  }
+  return cinIs;
+}
+//========================================================================
 Graph::~Graph()
 {
 

@@ -68,10 +68,30 @@ bool realization(Graph &graph)
         }
         case 6:
         {
+            cout << "Enter the name of file " << endl;
+            string file;
+            cin >> file;
+            ofstream out;
+            out.open(file);
+            if(out.is_open())
+            {
+              out << graph;
+            }
+            out.close();
             break;
         }
         case 7:
         {
+            cout <<"Enter file name to load graph" << endl;
+            string file;
+            cin >> file;
+            ifstream in;
+            in.open(file);
+            if(in.is_open())
+            {
+              in >> graph;
+            }
+            in.close();
             break;
         }
         case 8:

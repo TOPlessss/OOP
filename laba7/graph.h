@@ -23,8 +23,12 @@ public:
     void deleteArc(std::string vert1, std::string vert2);
     void printOutArc(std::string name);
     void printInArc(std::string name);
+    friend std::ostream & operator<<(std::ostream & coutOs, Graph & graph);
+    friend std::istream & operator>>(std::istream & cinIs, Graph & graph);
     virtual ~Graph();
 };
 
+std::ostream & operator<<(std::ostream & coutOs, Graph & graph);
+std::istream & operator>>(std::istream & cinIs, Graph & graph);
 
 #endif

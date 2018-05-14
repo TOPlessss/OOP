@@ -5,7 +5,7 @@ using namespace std;
 
 void menu()
 {
-    cout << "Please select necessary operation" << endl;
+    cout << "Please select necessary operation" << endl << endl;
     cout << "Press 1 to add new vertex to graph" << endl;
     cout << "Press 2 to add new arc to graph" << endl;
     cout << "Press 3 to delete vertex from graph" << endl;
